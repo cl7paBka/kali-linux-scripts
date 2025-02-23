@@ -29,6 +29,14 @@ EOF
 # Make the desktop shortcut executable
 sudo chmod +x $HOME/Desktop/nekobox.desktop
 
-sudo chown -R $SUDO_USER:$SUDO_USER /opt/nekoray
+# Create a symbolic link to make NekoBox available in terminal
+sudo ln -sf /opt/nekoray/nekobox /usr/local/bin/nekobox
 
-echo "NekoBox installation and shortcut creation completed!"
+# Copy the desktop file to the user's applications directory (so it appears in the launcher)
+mkdir -p "$HOME/.local/share/applications"
+cp "$HOME/Desktop/nekobox.desktop" "$HOME/.local/share/applications/"
+
+# Fix permissions for the installation directory (assign to the original user)
+sudo chown -R "$SUDO_USER":"$SUDO_USER" /opt/nekoray
+
+echo "NekoBox installation, terminal link, and launcher integration completed!"
