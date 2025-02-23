@@ -26,7 +26,7 @@ cat <<EOF > $HOME/Desktop/pycharm-community.desktop
 [Desktop Entry]
 Name=Pycharm Community
 Comment=PyCharm Community Edition
-Exec="/opt/pycharm-community-2024.3/bin/pycharm.sh" $f
+Exec="/opt/pycharm-community-2024.3/bin/pycharm" $f
 Icon=/opt/pycharm-community-2024.3/bin/pycharm.png
 Terminal=false
 Type=Application
